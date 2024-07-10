@@ -11,7 +11,7 @@ namespace Strategy
             Debug.Log("Start");
             for (int i = 0; i < 5; i++)
             {
-                var index = Random.Range(0, 2);
+                var index = Random.Range(0, 4);
                 var ticket = new Ticket();
                 ticket.SetName("Ticket " + i);
                 ticket.SetPrice(100);
@@ -23,11 +23,14 @@ namespace Strategy
                     case 1:
                         ticket.SetPromoteStrategy(new QuarterDiscountStrategy());
                         break;
+                    case 2:
+                        ticket.SetPromoteStrategy(new EightyDiscountStrategy());
+                        break;
                     default:
                         ticket.SetPromoteStrategy(new NoDiscountStrategy());
                         break;
                 }
-                Debug.Log($"Promoted price of {ticket.GetName()} is {ticket.GetPromotedPrice()}");
+                Debug.Log($"Promoted price of {ticket.GetName()} is {ticket.GetPromotedPrice()} (type: {ticket.GetPromoteStrategy().GetType()})");
             }
             
             
