@@ -11,13 +11,10 @@ namespace FactoryMethod
             {
                 case 0:
                     return new Dog();
-                    break;
                 case 1:
                     return new Cat();
-                    break;
                 default:
                     return new Duck();
-                    break;
             }
         }
     }
